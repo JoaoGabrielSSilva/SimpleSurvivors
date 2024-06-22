@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=3 uid="uid://cm17yqyau8eg3"]
+
+[ext_resource type="Script" path="res://Scenes/ui.gd" id="1_jkqdc"]
+[ext_resource type="Texture2D" uid="uid://bx1xa65vtyixf" path="res://Assets/Tiny Swords/UI/Banners/Banner_Horizontal.png" id="1_ktypa"]
+
+[sub_resource type="SystemFont" id="SystemFont_ae8it"]
+font_names = PackedStringArray("Impact")
+font_weight = 999
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_08vlu"]
+font = SubResource("SystemFont_ae8it")
+font_size = 40
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eorcf"]
+texture = ExtResource("1_ktypa")
+texture_margin_left = 32.0
+texture_margin_top = 16.0
+texture_margin_right = 32.0
+texture_margin_bottom = 45.7277
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(32, 48, 128, 128)
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_jkqdc")
+
+[node name="LabelTimer" type="Label" parent="."]
+unique_name_in_owner = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -42.5
+offset_top = 15.0
+offset_right = 42.5
+offset_bottom = 38.0
+grow_horizontal = 2
+text = "0:00"
+label_settings = SubResource("LabelSettings_08vlu")
+horizontal_alignment = 1
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -386.0
+offset_top = 22.0
+offset_right = -25.0
+offset_bottom = 108.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_eorcf")
+
+[node name="LabelOuro" type="Label" parent="Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 37.5
+offset_top = -25.5
+offset_right = 122.5
+offset_bottom = -2.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "1,000 Ouro"

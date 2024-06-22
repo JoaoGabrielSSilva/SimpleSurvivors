@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://d1rkh0dlvwv2g"]
+
+[ext_resource type="Script" path="res://Scripts/GeradorInimigos.gd" id="1_cxqjt"]
+[ext_resource type="PackedScene" uid="uid://cy42154om3l5v" path="res://Scenes/goblinTocha.tscn" id="2_6mkcn"]
+[ext_resource type="PackedScene" uid="uid://x88govoer0pq" path="res://Scenes/ovelha.tscn" id="3_ggbiy"]
+[ext_resource type="PackedScene" uid="uid://c0fgt6iqqlpgl" path="res://Scenes/Peao.tscn" id="4_dy4qp"]
+
+[sub_resource type="Curve2D" id="Curve2D_pedij"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -710, -444.907, 0, 0, 0, 0, -710, 422, 0, 0, 0, 0, 737, 425.815, 0, 0, 0, 0, 748, -452.537, 0, 0, 0, 0, -708, -446.815)
+}
+point_count = 5
+
+[node name="GeradorInimigos" type="Node2D"]
+position = Vector2(530, 350)
+script = ExtResource("1_cxqjt")
+inimigos = Array[PackedScene]([ExtResource("2_6mkcn"), ExtResource("3_ggbiy"), ExtResource("4_dy4qp")])
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(0, 21.5098)
+scale = Vector2(1, 1.04855)
+curve = SubResource("Curve2D_pedij")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+unique_name_in_owner = true
+position = Vector2(-710, -444.907)
+rotation = 1.5708
+
+[node name="_Timer_25093" type="Timer" parent="Path2D/PathFollow2D"]
+wait_time = 0.2
+one_shot = true

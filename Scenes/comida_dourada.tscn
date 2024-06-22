@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cb8ii175a5fx4"]
+
+[ext_resource type="PackedScene" uid="uid://cxo1166dcbdlf" path="res://Scenes/comida.tscn" id="1_6ho53"]
+
+[node name="Comida Dourada" instance=ExtResource("1_6ho53")]
+self_modulate = Color(2, 2, 0, 1)
+position = Vector2(-1, -17)
+quantidadeVida = 100
+
+[node name="Area2D" parent="." index="0"]
+visible = false

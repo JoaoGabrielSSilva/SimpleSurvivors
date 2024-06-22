@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://lk7kfb4go6o6"]
+
+[ext_resource type="PackedScene" uid="uid://qg4i5222wwm7" path="res://Scenes/player.tscn" id="1_6vbwq"]
+[ext_resource type="PackedScene" uid="uid://d1rkh0dlvwv2g" path="res://Scenes/gerador_inimigos.tscn" id="2_pk7i0"]
+[ext_resource type="PackedScene" uid="uid://cm17yqyau8eg3" path="res://Scenes/ui.tscn" id="3_mquok"]
+
+[node name="teste_personagem" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_6vbwq")]
+position = Vector2(530, 350)
+
+[node name="GeradorInimigos" parent="." instance=ExtResource("2_pk7i0")]
+
+[node name="UI" parent="." instance=ExtResource("3_mquok")]

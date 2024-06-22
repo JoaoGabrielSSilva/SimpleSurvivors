@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxo1166dcbdlf"]
+
+[ext_resource type="Texture2D" uid="uid://b6e33ii807t05" path="res://Assets/Tiny Swords/Resources/Resources/M_Idle.png" id="1_jwy7o"]
+[ext_resource type="Script" path="res://Scenes/regeneradorDeVida.gd" id="2_whrys"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_25udt"]
+radius = 33.0
+
+[node name="Carne" type="Sprite2D"]
+texture = ExtResource("1_jwy7o")
+script = ExtResource("2_whrys")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(3, 16)
+shape = SubResource("CircleShape2D_25udt")

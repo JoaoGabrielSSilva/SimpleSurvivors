@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bu6eeloib62qc"]
+
+[ext_resource type="PackedScene" uid="uid://da4gho1phtlvm" path="res://Scenes/morte.tscn" id="1_2460s"]
+
+[node name="Morte" instance=ExtResource("1_2460s")]
+modulate = Color(1, 1, 0.298039, 1)
+scale = Vector2(2, 2)

@@ -1,0 +1,84 @@
+[gd_scene load_steps=14 format=3 uid="uid://c0fgt6iqqlpgl"]
+
+[ext_resource type="Script" path="res://Scripts/inimigo.gd" id="1_17el0"]
+[ext_resource type="Script" path="res://Scripts/seguir_jogador.gd" id="1_yfx7p"]
+[ext_resource type="PackedScene" uid="uid://da4gho1phtlvm" path="res://Scenes/morte.tscn" id="2_etmbi"]
+[ext_resource type="Texture2D" uid="uid://btk4vhqviv5ds" path="res://Assets/Tiny Swords/Factions/Knights/Troops/Pawn/Pawn_Red.png" id="2_i46rx"]
+[ext_resource type="PackedScene" uid="uid://cxo1166dcbdlf" path="res://Scenes/comida.tscn" id="3_63esx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvmpa"]
+atlas = ExtResource("2_i46rx")
+region = Rect2(0, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjb1b"]
+atlas = ExtResource("2_i46rx")
+region = Rect2(192, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vuae"]
+atlas = ExtResource("2_i46rx")
+region = Rect2(384, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iecq4"]
+atlas = ExtResource("2_i46rx")
+region = Rect2(576, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhcq8"]
+atlas = ExtResource("2_i46rx")
+region = Rect2(768, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_od46a"]
+atlas = ExtResource("2_i46rx")
+region = Rect2(960, 192, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0le1b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvmpa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjb1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7vuae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iecq4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhcq8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_od46a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cg5j4"]
+radius = 20.0
+height = 44.0
+
+[node name="Peao" type="CharacterBody2D" groups=["inimigos"]]
+motion_mode = 1
+script = ExtResource("1_17el0")
+prefabMorte = ExtResource("2_etmbi")
+chanceDrop = 0.2
+itensDrop = Array[PackedScene]([ExtResource("3_63esx")])
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -23)
+sprite_frames = SubResource("SpriteFrames_0le1b")
+autoplay = "default"
+frame_progress = 0.122944
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -21)
+shape = SubResource("CapsuleShape2D_cg5j4")
+
+[node name="SeguirJogador" type="Node" parent="."]
+script = ExtResource("1_yfx7p")
+
+[node name="MarcadorDigitoDano" type="Marker2D" parent="."]
+position = Vector2(0, -55)
